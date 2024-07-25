@@ -157,3 +157,25 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+
+// Function to show project details
+function showProjectDetails(projectId) {
+  document.querySelectorAll('.project-details').forEach(el => el.style.display = 'none');
+  document.getElementById(projectId + '-details').style.display = 'block';
+  document.querySelector('.projects').style.display = 'none';
+}
+
+// Function to hide project details
+function hideProjectDetails() {
+  document.querySelectorAll('.project-details').forEach(el => el.style.display = 'none');
+  document.querySelector('.projects').style.display = 'block';
+}
+
+// Add click event listeners to project links
+document.querySelectorAll('[data-project-link]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    showProjectDetails(link.getAttribute('data-project-link'));
+  });
+});
