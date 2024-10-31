@@ -894,8 +894,18 @@ main {
 }
 
 
+/* OR create a specific class for project content */
+.project-content {
+  background: #ffffff; /* or any color that matches your design */
+  color: var(--smoky-black); /* ensure text is readable on light background */
+  padding: 20px;
+  border-radius: 20px;
+}
 
-
+/* Add this after your existing article styles */
+article.active {
+  background: var(--smoky-black); /* or any other lighter color you prefer */
+}
 
 /*-----------------------------------*\
   #UX Research 
