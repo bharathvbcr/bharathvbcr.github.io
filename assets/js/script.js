@@ -237,34 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
       e.target.style.display = 'none';
     }
   });
-
-  const style = document.createElement('style');
-  style.innerHTML = `
-    .modal-content {
-      max-height: 80vh; /* Adjust the height as needed */
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    }
-
-    /* Custom scrollbar styles */
-    .modal-content::-webkit-scrollbar {
-      width: 8px; /* Width of the scrollbar */
-    }
-
-    .modal-content::-webkit-scrollbar-track {
-      background: #f1f1f1; /* Background of the scrollbar track */
-    }
-
-    .modal-content::-webkit-scrollbar-thumb {
-      background: #888; /* Color of the scrollbar thumb */
-      border-radius: 4px; /* Rounded corners for the scrollbar thumb */
-    }
-
-    .modal-content::-webkit-scrollbar-thumb:hover {
-      background: #555; /* Color of the scrollbar thumb on hover */
-    }
-  `;
-  document.head.appendChild(style);
 });
 
 function hideProjectDetails() {
@@ -273,30 +245,45 @@ function hideProjectDetails() {
   });
 }
 
-const style = document.createElement('style');
-style.innerHTML = `
-  .modal-content {
-    max-height: 80vh; /* Adjust the height as needed */
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-  }
+// Select the form and response elements
+const aiForm = document.getElementById('ai-form');
+const userQuestion = document.getElementById('user-question');
+const aiAnswer = document.getElementById('ai-answer');
 
-  /* Custom scrollbar styles for desktop */
-  .modal-content::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
-  }
+// **(IMPORTANT!)** Replace with your actual Bard API endpoint when it becomes available
+const apiEndpoint = 'https://api.bard.google.com/v1/generate'; // Example endpoint 
 
-  .modal-content::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Background of the scrollbar track */
-  }
+const apiKey = 'AIzaSyBtf7srT4vbnpv7GNrDlCXZVeir0TQ-ejg'; // Your Gemini API key
 
-  .modal-content::-webkit-scrollbar-thumb {
-    background: #888; /* Color of the scrollbar thumb */
-    border-radius: 4px; /* Rounded corners for the scrollbar thumb */
-  }
+aiForm.addEventListener('submit', async function(event) {
+  event.preventDefault();
 
-  .modal-content::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color of the scrollbar thumb on hover */
+  const question = userQuestion.value;
+  aiAnswer.textContent = "Thinking..."; // Indicate that the AI is working
+
+  try {
+    const response = await fetch(apiEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        prompt: question,
+        // You can add context from your portfolio data here if needed
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`API request failed with status ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    // Assuming the response is in a field called 'response' or similar
+    aiAnswer.textContent = data.response || data.text; 
+  } catch (error) {
+    console.error('Error:', error);
+    aiAnswer.textContent = 'Oops! Something went wrong. Please try again.';
   }
-`;
-document.head.appendChild(style);
+});

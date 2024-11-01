@@ -779,48 +779,6 @@ social-item .social-link:hover { color: var(--light-gray); }
   line-height: 1.6;
 }
 
-.modal-content {
-  max-height: 80vh; /* Adjust the height as needed */
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-}
-
-/* Custom scrollbar styles for desktop */
-.modal-content::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
-}
-
-.modal-content::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Background of the scrollbar track */
-}
-
-.modal-content::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the scrollbar thumb */
-  border-radius: 4px; /* Rounded corners for the scrollbar thumb */
-}
-
-.modal-content::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the scrollbar thumb on hover */
-}
-
-/* Custom scrollbar styles */
-.modal-content::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
-}
-
-.modal-content::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Background of the scrollbar track */
-}
-
-.modal-content::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the scrollbar thumb */
-  border-radius: 4px; /* Rounded corners for the scrollbar thumb */
-}
-
-.modal-content::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the scrollbar thumb on hover */
-}
-
 
 
 
@@ -2163,4 +2121,23 @@ textarea.form-input::-webkit-resizer { display: none; }
   .project-list {
     grid-template-columns: 1fr;
   }
+}
+
+/* Ask Me Form Styles */
+.ask-me-form .form-input {
+  width: 100%;
+  margin-bottom: 20px;
+  resize: vertical;
+}
+
+.ai-response {
+  margin-top: 30px;
+}
+
+.ai-response .form-input {
+  /* background-color: #050505; */
+  padding: 15px;
+  border-radius: 10px;
+  min-height: 100px;
+  overflow-y: auto;
 }
