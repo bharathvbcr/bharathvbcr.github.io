@@ -245,45 +245,39 @@ function hideProjectDetails() {
   });
 }
 
-// Select the form and response elements
 const aiForm = document.getElementById('ai-form');
 const userQuestion = document.getElementById('user-question');
 const aiAnswer = document.getElementById('ai-answer');
 
-// **(IMPORTANT!)** Replace with your actual Bard API endpoint when it becomes available
-const apiEndpoint = 'https://api.bard.google.com/v1/generate'; // Example endpoint 
 
-const apiKey = 'AIzaSyBtf7srT4vbnpv7GNrDlCXZVeir0TQ-ejg'; // Your Gemini API key
+const serverEndpoint = '/your-api-endpoint'; // Your server-side endpoint
 
 aiForm.addEventListener('submit', async function(event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  const question = userQuestion.value;
-  aiAnswer.textContent = "Thinking..."; // Indicate that the AI is working
+    const question = userQuestion.value;
+    aiAnswer.textContent = "Thinking...";
 
-  try {
-    const response = await fetch(apiEndpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
-      },
-      body: JSON.stringify({
-        prompt: question,
-        // You can add context from your portfolio data here if needed
-      })
-    });
+    try {
+        const response = await fetch(serverEndpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ question: question }) // Send the question to your server
+        });
 
-    if (!response.ok) {
-      throw new Error(`API request failed with status ${response.status}`);
+        if (!response.ok) {
+          // Handle server errors, provide helpful message to user.
+          // Consider retry mechanisms, etc.
+            throw new Error(`Server request failed ${response.status}`);
+        }
+
+        const data = await response.json();
+        aiAnswer.textContent = data.answer;  // Get the answer from your server's response
+
+    } catch (error) {
+        console.error('Error:', error);
+        aiAnswer.textContent = `An error occurred. Please try again or contact me directly using the information on my portfolio.`; // User-friendly message
     }
-
-    const data = await response.json();
-
-    // Assuming the response is in a field called 'response' or similar
-    aiAnswer.textContent = data.response || data.text; 
-  } catch (error) {
-    console.error('Error:', error);
-    aiAnswer.textContent = 'Oops! Something went wrong. Please try again.';
-  }
 });
