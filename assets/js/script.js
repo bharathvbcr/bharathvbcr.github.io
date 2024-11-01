@@ -237,6 +237,33 @@ document.addEventListener('DOMContentLoaded', () => {
       e.target.style.display = 'none';
     }
   });
+
+  const style = document.createElement('style');
+  style.innerHTML = `
+    .modal-content {
+      max-height: 80vh; /* Adjust the height as needed */
+      overflow-y: auto;
+    }
+
+    /* Custom scrollbar styles */
+    .modal-content::-webkit-scrollbar {
+      width: 8px; /* Width of the scrollbar */
+    }
+
+    .modal-content::-webkit-scrollbar-track {
+      background: #f1f1f1; /* Background of the scrollbar track */
+    }
+
+    .modal-content::-webkit-scrollbar-thumb {
+      background: #888; /* Color of the scrollbar thumb */
+      border-radius: 4px; /* Rounded corners for the scrollbar thumb */
+    }
+
+    .modal-content::-webkit-scrollbar-thumb:hover {
+      background: #555; /* Color of the scrollbar thumb on hover */
+    }
+  `;
+  document.head.appendChild(style);
 });
 
 function hideProjectDetails() {
