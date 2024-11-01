@@ -1,11 +1,7 @@
 'use strict';
 
-
-
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
-
-
 
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
@@ -13,8 +9,6 @@ const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
 // sidebar toggle functionality for mobile
 sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-
-
 
 // Current variables
 const CurrentItem = document.querySelectorAll("[data-Current-item]");
@@ -52,8 +46,6 @@ for (let i = 0; i < CurrentItem.length; i++) {
 // add click event to modal close button
 modalCloseBtn.addEventListener("click", CurrentModalFunc);
 overlay.addEventListener("click", CurrentModalFunc);
-
-
 
 // custom select variables
 const select = document.querySelector("[data-select]");
@@ -113,8 +105,6 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 }
 
-
-
 // contact form variables
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
@@ -133,8 +123,6 @@ for (let i = 0; i < formInputs.length; i++) {
 
   });
 }
-
-
 
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
@@ -158,7 +146,6 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
-
 // Function to show project details
 function showProjectDetails(projectId) {
   document.querySelectorAll('.project-details').forEach(el => el.style.display = 'none');
@@ -180,3 +167,80 @@ document.querySelectorAll('[data-project-link]').forEach(link => {
     showProjectDetails(link.getAttribute('data-project-link'));
   });
 });
+
+document.querySelectorAll('[data-project-link]').forEach(item => {
+  item.addEventListener('click', event => {
+    if (item.hasAttribute('data-modal')) {
+      event.preventDefault();
+      // Open modal (handled elsewhere)
+    } else {
+      // Existing navigation code
+    }
+  });
+});
+
+// Open Modal
+document.querySelectorAll('[data-modal]').forEach(item => {
+  item.addEventListener('click', event => {
+    event.preventDefault(); // Prevent default link behavior
+    const modalId = item.getAttribute('data-modal');
+    document.getElementById(modalId).style.display = 'block';
+  });
+});
+
+// Close Modal
+document.querySelectorAll('.close').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.modal').style.display = 'none';
+  });
+});
+
+// Close Modal When Clicking Outside
+window.addEventListener('click', event => {
+  if (event.target.classList.contains('modal')) {
+    event.target.style.display = 'none';
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Get all certification links
+  const certLinks = document.querySelectorAll('.certification-link');
+  
+  // Add click handlers to all links
+  certLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const modalId = link.getAttribute('data-modal-target');
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'block';
+      }
+    });
+  });
+
+  // Get all close buttons
+  const closeButtons = document.querySelectorAll('.close-modal');
+  
+  // Add click handlers to all close buttons
+  closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.modal');
+      if (modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
+
+  // Close modal when clicking outside
+  window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal')) {
+      e.target.style.display = 'none';
+    }
+  });
+});
+
+function hideProjectDetails() {
+  document.querySelectorAll('.modal').forEach(modal => {
+    modal.style.display = 'none';
+  });
+}
