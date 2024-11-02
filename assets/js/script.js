@@ -278,7 +278,7 @@ aiForm.addEventListener('submit', async function(event) {
 
     } catch (error) {
         console.error('Error:', error);
-        aiAnswer.textContent = `An error occurred. Please try again or contact me directly using the information on my portfolio.`; // User-friendly message
+        aiAnswer.textContent = `An error occurred. Please try again or contact me directly using the information on my portfolio. Working fast to fix it!`; // User-friendly message
     }
 });
 

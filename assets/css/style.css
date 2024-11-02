@@ -6,6 +6,7 @@
 
 
 
+
 /*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
@@ -107,8 +108,57 @@
 }
 
 
+/* Add this to your CSS */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px; /* Prevents too wide layout on large screens */
+}
 
+.certificate-item {
+  background: var(--eerie-black-2);
+  border-radius: 14px;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
 
+.certificate-item a {
+  display: block;
+  height: 100%;
+}
+
+.certificate-item figure {
+  height: 200px;
+  overflow: hidden;
+}
+
+.certificate-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-title {
+  padding: 15px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .certificates-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /*-----------------------------------*\
   #RESET
