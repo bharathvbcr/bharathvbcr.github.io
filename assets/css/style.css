@@ -810,7 +810,7 @@ social-item .social-link:hover { color: var(--light-gray); }
 
 .modal-img-wrapper > img { display: none; }
 
-.modal-title { margin-bottom: 4px; }
+.modal-title { margin-bottom: 10px; }
 
 .modal-content time {
   font-size: var(--fs-6);
