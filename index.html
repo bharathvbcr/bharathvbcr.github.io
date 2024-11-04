@@ -1150,44 +1150,46 @@
 </section>
 
 
-  </section>
+</section>
 
-    <div class="title-wrapper" style="display: flex; align-items: center; margin-bottom: 20px; margin-top: 40px;"> <!-- Add margin-top -->
-      <div class="icon-box" style="margin-right: 10px;">
-        <ion-icon name="ribbon-outline"></ion-icon>
-      </div>
-      <h3 class="h3">Certificates</h3>
-    </div>
+<div class="title-wrapper" style="display: flex; align-items: center; margin-bottom: 20px; margin-top: 40px;">
+  <div class="icon-box" style="margin-right: 10px;">
+    <ion-icon name="ribbon-outline"></ion-icon>
+  </div>
+  <h3 class="h3">Certificates</h3>
+</div>
 
-    <div class="certificates-grid">
-      <!-- Certificate Item 1 -->
-      <div class="certificate-item active">
-        <a href="#" class="certification-link" data-modal-target="modal-certificate1">
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-            <img src="./assets/images/Human Factors.png" alt="Certificate1" loading="lazy">
-          </figure>
-          <h3 class="project-title">Human Factors & Usability Engineering: Designing for Humans</h3>
-        </a>
-      </div>
-      
-      <!-- Add more certificate items here -->
-    </div>
-    <div class="certificates-grid">
-      <!-- Certificate Item 2 -->
-      <div class="certificate-item active">
-        <a href="#" class="certification-link" data-modal-target="modal-certificate2">
-          <figure class="project-img">
-            <div class="project-item-icon-box">
-              <ion-icon name="eye-outline"></ion-icon>
-            </div>
-            <img src="./assets/images/Introductory_Human_Physiology.png" alt="Certificate1" loading="lazy">
-          </figure>
-          <h3 class="project-title">Human Factors & Usability Engineering: Designing for Humans</h3>
-        </a>
-      </div>
+<section class="certificates">
+  <ul class="certificate-list">
+    <!-- Certificate Item 1 -->
+    <li class="certificate-item active" data-filter-item data-category="certificate">
+      <a href="#" class="certificate-link" data-modal-target="modal-certificate1">
+        <figure class="certificate-img">
+          <div class="certificate-item-icon-box">
+            <ion-icon name="eye-outline"></ion-icon>
+          </div>
+          <img src="./assets/images/Human Factors.png" alt="Human Factors & Usability Engineering: Designing for Humans" loading="lazy">
+        </figure>
+        <h3 class="certificate-title">Human Factors & Usability Engineering: Designing for Humans</h3>
+      </a>
+    </li>
+
+    <!-- Certificate Item 2 -->
+    <li class="certificate-item active" data-filter-item data-category="certificate">
+      <a href="#" class="certificate-link" data-modal-target="modal-certificate2">
+        <figure class="certificate-img">
+          <div class="certificate-item-icon-box">
+            <ion-icon name="eye-outline"></ion-icon>
+          </div>
+          <img src="./assets/images/Introductory_Human_Physiology.png" alt="Introductory Human Physiology" loading="lazy">
+        </figure>
+        <h3 class="certificate-title">Introductory Human Physiology</h3>
+      </a>
+    </li>
+
+    <!-- Add more certificate items here -->
+  </ul>
+</section>
 
     <!-- Modals remain unchanged -->
 
@@ -1195,7 +1197,7 @@
           <div id="modal-certificate1" class="modal">
             <div class="modal-content">
               <span class="close-modal">&times;</span>
-              <h2>Certificate1</h2>
+              <h2>Human Factors & Usability Engineering: Designing for Humans</h2>
               <div class="certification-details">
                 <img src="./assets/images/Human Factors.png" alt="Certificate1" style="max-width: 100%; margin-bottom: 20px;">
                 <p><strong>Issuing Organization:</strong> Arizona State University</p>
@@ -1211,9 +1213,9 @@
                     <div id="modal-certificate2" class="modal">
                       <div class="modal-content">
                         <span class="close-modal">&times;</span>
-                        <h2>Certificate1</h2>
+                        <h2>Introductory Human Physiology</h2>
                         <div class="certification-details">
-                          <img src="./assets/images/Introductory_Human_Physiology.png" alt="Certificate2" style="max-width: 100%; margin-bottom: 20px;">
+                          <img src="./assets/images/Introductory_Human_Physiology.png" alt="Introductory Human Physiology" style="max-width: 100%; margin-bottom: 20px;">
                           <p><strong>Issuing Organization:</strong> Duke UNIVERSITY</p>
                           <p><strong>Date Issued:</strong> April 2021</p>
                           <!-- <p><strong>Credential ID:</strong> [ABC123]</p> -->
