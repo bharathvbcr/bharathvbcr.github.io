@@ -579,7 +579,7 @@ social-item .social-link:hover { color: var(--light-gray); }
 .about .about-text > * {
   position: relative;
   z-index: 2;
-  color: var(--white-2);
+  color: var (--white-2);
 }
 
 .about .article-title {
@@ -1872,6 +1872,8 @@ textarea.form-input::-webkit-resizer { display: none; }
     gap: 25px;
     padding: 30px;
     border-radius: 20px;
+    max-height: 80vh; /* Set maximum height to 80% of viewport height */
+    overflow-y: auto; /* Enable vertical scrolling when content overflows */
   }
 
   .modal-img-wrapper {
@@ -2619,4 +2621,46 @@ textarea.form-input::-webkit-resizer { display: none; }
   .certificate-img {
     height: 180px;
   }
+}
+
+/* Modal Button Alignment */
+.modal-close-btn,
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--border-gradient-onyx);
+  color: var(--orange-yellow-crayola);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 20;
+  margin: 5; /* Remove margin to prevent offset */
+  padding: 10px;
+  box-shadow: var(--shadow-3);
+  transition: var(--transition-1);
+}
+
+/* Modal Content Spacing */
+.modal-content {
+  position: relative;
+  padding: 60px 20px 20px 20px; /* Top padding to accommodate button */
+}
+
+/* Button Icon */
+.close ion-icon {
+  --ionicon-stroke-width: 45px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Hover Effect */
+.close:hover,
+.modal-close-btn:hover {
+  background: var(--bg-gradient-yellow-1);
+  transform: scale(1.05);
 }
