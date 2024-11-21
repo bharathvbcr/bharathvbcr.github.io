@@ -328,28 +328,44 @@ aiForm.addEventListener('submit', async function(event) {
 });
 
 const style = document.createElement('style');
-style.innerHTML = `
+style.textContent = `
   .modal-content {
-    max-height: 80vh; /* Adjust the height as needed */
+    max-height: 85vh;
     overflow-y: auto;
+    scroll-behavior: smooth;
+    padding-right: 10px;
   }
 
-  /* Custom scrollbar styles */
+  /* Modern Scrollbar Styles */
   .modal-content::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
+    width: 6px;
+    background: transparent;
   }
 
   .modal-content::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Background of the scrollbar track */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
   }
 
   .modal-content::-webkit-scrollbar-thumb {
-    background: #888; /* Color of the scrollbar thumb */
-    border-radius: 4px; /* Rounded corners for the scrollbar thumb */
+    background: rgba(136, 136, 136, 0.5);
+    border-radius: 10px;
+    transition: background 0.3s ease;
   }
 
   .modal-content::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color of the scrollbar thumb on hover */
+    background: rgba(136, 136, 136, 0.8);
+  }
+
+  /* Firefox Scrollbar */
+  .modal-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(136, 136, 136, 0.5) rgba(255, 255, 255, 0.1);
+  }
+
+  /* Edge/IE Support */
+  .modal-content {
+    -ms-overflow-style: auto;
   }
 `;
 document.head.appendChild(style);

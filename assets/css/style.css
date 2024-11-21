@@ -778,27 +778,40 @@ social-item .social-link:hover { color: var(--light-gray); }
   transform: scale(1);
   opacity: 1;
 }
-
-.modal-close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: var(--onyx);
-  border-radius: 8px;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--white-2);
-  font-size: 18px;
-  opacity: 0.7;
+.modal-content {
+  max-height: 80vh; /* Set maximum height to 80% of viewport height */
+  overflow-y: auto;  /* Enable vertical scrolling when content overflows */
 }
 
-.modal-close-btn:hover,
-.modal-close-btn:focus { opacity: 1; }
 
-.modal-close-btn ion-icon { --ionicon-stroke-width: 50px; }
+
+
+
+
+.form-btn::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+  transition: var(--transition-1);
+}
+
+.form-btn ion-icon { font-size: 16px; }
+
+.form-btn:hover { background: var(--bg-gradient-yellow-1); }
+
+.form-btn:hover::before { background: var(--bg-gradient-yellow-2); }
+
+.form-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form-btn:disabled:hover { background: var(--border-gradient-onyx); }
+
+.form-btn:disabled:hover::before { background: var(--bg-gradient-jet); }
 
 .modal-avatar-box {
   background: var(--bg-gradient-onyx);
@@ -981,30 +994,9 @@ article.active {
   display: block;
 }
 
-/* .modal-content {
-  background-color: var(--eerie-black-2);
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid var(--jet);
-  width: 90%;
-  max-width: 600px;
-  position: relative;
-  border-radius: 8px;
-} */
 
-.close-modal {
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  color: var(--white-1);
-  font-size: 30px;
-  font-weight: bold;
-  cursor: pointer;
-}
 
-.close-modal:hover {
-  color: var(--orange-yellow-crayola);
-}
+
 
 /* Modal Background */
 .modal {
@@ -1033,19 +1025,78 @@ article.active {
 }
 
 /* Close Button */
+/* Close Button */
 .close {
   position: absolute;
   top: 15px;
-  right: 25px;
+  right: 15px;
+  background: var(--border-gradient-onyx);
   color: var(--orange-yellow-crayola);
-  font-size: 30px;
-  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
   cursor: pointer;
+  z-index: 10;
+  margin: 10px;
+  padding: 8px;
+  box-shadow: var(--shadow-3);
+  transition: var(--transition-1);
 }
 
-/* .close-modal:hover {
+/* Ensure content has proper spacing from close button */
+.modal-content {
+  padding-top: 60px; /* Add space at top for close button */
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.modal-content h2 {
+  margin-right: 50px; /* Prevent text from flowing under close button */
+}
+
+/* .close:hover {
+  background: var(--jet);
   color: var(--orange-yellow-crayola);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 } */
+
+.close ion-icon {
+  --ionicon-stroke-width: 50px;
+  font-size: 1.5em;
+}
+
+.close::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+  transition: var(--transition-1);
+}
+
+.close ion-icon { font-size: 16px; }
+
+.close:hover { background: var(--bg-gradient-yellow-1); }
+
+.close:hover::before { background: var(--bg-gradient-yellow-2); }
+
+.close:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.close:disabled:hover { background: var(--border-gradient-onyx); }
+
+.close:disabled:hover::before { background: var(--bg-gradient-jet); }
+
+
+
 
 
 /*-----------------------------------*\
@@ -1332,42 +1383,10 @@ article.active {
   font-weight: var(--fw-300);
 }
 
-        /* .modal {
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0,0,0,0.7);
-          z-index: 1000;
-        } */
 
-        /* .modal-content {
-          background-color: var(--eerie-black-2);
-          margin: 15% auto;
-          padding: 20px;
-          border: 1px solid var(--jet);
-          width: 80%;
-          max-width: 600px;
-          border-radius: 8px;
-          position: relative;
-        } */
 
-        /* .close-modal {
-          color: var(--light-gray);
-          float: right;
-          font-size: 28px;
-          font-weight: bold;
-          cursor: pointer;
-        } */
-
-        .close-modal:hover {
-          color: var(--orange-yellow-crayola);
-        }
-
-        .certification-details {
-          margin-top: 20px;
+      .certification-details {
+        margin-top: 20px;
         }
 
 
@@ -1458,7 +1477,59 @@ article.active {
 
 
 
+/* Ask Me Section Styles */
+.ask-me {
+  padding: 30px;
+}
 
+.ask-me-form {
+  background: var(--eerie-black-2);
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 30px;
+}
+
+.form-title {
+  margin-bottom: 20px;
+}
+
+#ai-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#user-question {
+  min-height: 100px;
+  resize: vertical;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.ai-response {
+  background: var(--eerie-black-2);
+  padding: 20px;
+  border-radius: 14px;
+}
+
+.response-title {
+  margin-bottom: 20px;
+}
+
+#ai-answer {
+  min-height: 100px;
+  padding: 15px;
+  border-radius: 12px;
+  background: var(--jet);
+  color: var(--light-gray);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ask-me {
+    padding: 20px;
+  }
+}
 
 /*-----------------------------------*\
   #CONTACT
