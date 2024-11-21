@@ -182,6 +182,41 @@ document.querySelectorAll('[data-project-link]').forEach(item => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const filterButtons = document.querySelectorAll('[data-filter-btn]');
+  const selectItems = document.querySelectorAll('[data-select-item]');
+  const selectValue = document.querySelector('[data-select-value]');
+  const projectItems = document.querySelectorAll('[data-filter-item]');
+
+  function filterProjects(selectedValue) {
+    projectItems.forEach(item => {
+      const itemCategory = item.getAttribute('data-category');
+      item.style.display = (selectedValue === 'all' || itemCategory === selectedValue) ? 'block' : 'none';
+    });
+  }
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filterValue = button.innerText.toLowerCase();
+      selectValue.innerText = button.innerText; // Update select box display
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      filterProjects(filterValue);
+    });
+  });
+
+  selectItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const selectedValue = item.innerText.toLowerCase();
+      selectValue.innerText = item.innerText; // Update select box display
+      filterProjects(selectedValue);
+    });
+  });
+
+  // Initially show all projects
+  filterProjects('all');
+});
+
 // Open Modal
 document.querySelectorAll('[data-modal]').forEach(item => {
   item.addEventListener('click', event => {
@@ -418,19 +453,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    const targetPage = link.getAttribute('data-nav-link');
 
-    // Reload the page if 'user research' is selected
-    if (targetPage === 'user research') {
-      window.location.hash = '#user-research';
-      location.reload();
-      return; // Exit the function to prevent further execution
-    }
 
-    pages.forEach(page => {
-      page.classList.toggle('active', page.getAttribute('data-page') === targetPage);
-    });
-  });
-});
+

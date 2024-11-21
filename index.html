@@ -1203,6 +1203,11 @@
 
 </section>
 
+
+
+        <!-- Certificates Section -->
+
+
 <div class="title-wrapper" style="display: flex; align-items: center; margin-bottom: 20px; margin-top: 40px;">
   <div class="icon-box" style="margin-right: 10px;">
     <ion-icon name="ribbon-outline"></ion-icon>
@@ -1214,7 +1219,7 @@
   <ul class="certificate-list">
     <!-- Certificate Item 1 -->
     <li class="certificate-item active" data-filter-item data-category="certificate">
-      <a href="#" class="certificate-link" data-modal-target="modal-certificate1">
+      <a href="#" data-project-link="certificate1" data-modal="modal-certificate1"> <!-- Changed data-modal-target to data-modal -->
         <figure class="certificate-img">
           <div class="certificate-item-icon-box">
             <ion-icon name="eye-outline"></ion-icon>
@@ -1227,7 +1232,7 @@
 
     <!-- Certificate Item 2 -->
     <li class="certificate-item active" data-filter-item data-category="certificate">
-      <a href="#" class="certificate-link" data-modal-target="modal-certificate2">
+      <a href="#" data-project-link="certificate2" data-modal="modal-certificate2"> <!-- Changed data-modal-target to data-modal -->
         <figure class="certificate-img">
           <div class="certificate-item-icon-box">
             <ion-icon name="eye-outline"></ion-icon>
@@ -1242,38 +1247,36 @@
   </ul>
 </section>
 
-    <!-- Modals remain unchanged -->
+<!-- Modals remain unchanged BUT with consistent close button class -->
 
-          <!-- Modal -->
-          <div id="modal-certificate1" class="modal">
-            <div class="modal-content">
-              <span class="close-modal">&times;</span>
-              <h2>Human Factors & Usability Engineering: Designing for Humans</h2>
-              <div class="certification-details">
-                <img src="./assets/images/Human Factors.png" alt="Certificate1" style="max-width: 100%; margin-bottom: 20px;">
-                <p><strong>Issuing Organization:</strong> Arizona State University</p>
-                <p><strong>Date Issued:</strong> July 2024</p>
-                <!-- <p><strong>Credential ID:</strong> [ABC123]</p> -->
-                <p><strong>Skills:</strong> Usability, Human Performance, Human-Centered Design, Visual interface and design, Field of human factors </p>
-                <p><strong>Verify Certificate:</strong> <a href="https://coursera.org/verify/specialization/6YP3E4ZVPTGF" target="https://coursera.org/verify/specialization/6YP3E4ZVPTGF">Click here to verify</a></p>
-              </div>
-            </div>
+      <!-- Modal -->
+      <div id="modal-certificate1" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Human Factors & Usability Engineering: Designing for Humans</h2>
+          <div class="certification-details">
+            <img src="./assets/images/Human Factors.png" alt="Certificate1" style="max-width: 100%; margin-bottom: 20px;">
+            <p><strong>Issuing Organization:</strong> Arizona State University</p>
+            <p><strong>Date Issued:</strong> July 2024</p>
+            <p><strong>Skills:</strong> Usability, Human Performance, Human-Centered Design, Visual interface and design, Field of human factors </p>
+            <p><strong>Verify Certificate:</strong> <a href="https://coursera.org/verify/specialization/6YP3E4ZVPTGF" target="https://coursera.org/verify/specialization/6YP3E4ZVPTGF">Click here to verify</a></p>
           </div>
+        </div>
+      </div>
 
-                    <!-- Modal -->
-                    <div id="modal-certificate2" class="modal">
-                      <div class="modal-content">
-                        <span class="close-modal">&times;</span>
-                        <h2>Introductory Human Physiology</h2>
-                        <div class="certification-details">
-                          <img src="./assets/images/Introductory_Human_Physiology.png" alt="Introductory Human Physiology" style="max-width: 100%; margin-bottom: 20px;">
-                          <p><strong>Issuing Organization:</strong> Duke UNIVERSITY</p>
-                          <p><strong>Date Issued:</strong> April 2021</p>
-                          <!-- <p><strong>Credential ID:</strong> [ABC123]</p> -->
-                          <p><strong>Skills:</strong> Metabolic Pathways, Biology, Organ Systems, Medicine, Cardiovascular understanding</p>
-                        </div>
-                      </div>
-                    </div>
+      <!-- Modal -->
+      <div id="modal-certificate2" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Introductory Human Physiology</h2>
+          <div class="certification-details">
+            <img src="./assets/images/Introductory_Human_Physiology.png" alt="Introductory Human Physiology" style="max-width: 100%; margin-bottom: 20px;">
+            <p><strong>Issuing Organization:</strong> Duke UNIVERSITY</p>
+            <p><strong>Date Issued:</strong> April 2021</p>
+            <p><strong>Skills:</strong> Metabolic Pathways, Biology, Organ Systems, Medicine, Cardiovascular understanding</p>
+          </div>
+        </div>
+      </div>
 
 
 
@@ -1301,205 +1304,43 @@
         - #User RESEARCH
       -->
 
-      <article class="user-research" data-page="user research">
+      <article data-page="user research" id="user-research">
 
         <header>
           <h2 class="h2 article-title">User Research</h2>
         </header>
 
         <section class="projects">
-          <button onclick="location.reload(); window.location.hash = '#user-research';" style="color: red;">If the page doesn't load, Click to Refresh and comeback</button>
-      
-          <!-- <ul class="filter-list">
-      
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-      
-            <li class="filter-item">
-              <button data-filter-btn>UX Research</button>
-            </li>
-      
-            <li class="filter-item">
-              <button data-filter-btn>Projects</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Research Proposals</button>
-            </li>
-      
-          </ul>
-      
-          <div class="filter-select-box">
-      
-            <button class="filter-select" data-select>
-      
-              <div class="select-value" data-selecct-value>Select category</div>
-      
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-      
-            </button>
-      
-            <ul class="select-list">
-      
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-      
-              <li class="select-item">
-                <button data-select-item>UX Research</button>
-              </li>
-      
-              <li class="select-item">
-                <button data-select-item>Projects</button> 
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Research Proposals</button>
-              </li>
-      
-            </ul>
-      
-          </div> -->
-      
-          <!-- <ul class="projects project-list">
-            <li class="project-item active" data-filter-item data-category="ux research">
-              <a href="#" data-project-link="textured-insoles1">
-          
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-          
-                  <img src="./assets/images/Picture2.png" alt="Textured Insoles Research" loading="lazy">
-                </figure>
-          
-                <h3 class="project-title">Textured Insoles Impact on Performance</h3>
-          
-                <p class="project-category">UX Research</p>
-          
-              </a>
-            </li>
-          
-            Add other project items here -->
-            <!-- UX Research Project Item -->
-            <!-- <li class="project-item active" data-filter-item data-category="ux research"> -->
-              <!-- <a href="#" data-modal="modal-ux-research-1"> -->
-                <!-- <figure class="project-img"> -->
-                  <!-- <div class="project-item-icon-box"> -->
-                    <!-- <ion-icon name="eye-outline"></ion-icon> -->
-                  <!-- </div> -->
-                  <!-- <img src="./assets/images/ux-research-project.jpg" alt="UX Research Project" loading="lazy"> -->
-                <!-- </figure> -->
-                <!-- <h3 class="project-title">UX Research Project Title</h3> -->
-                <!-- <p class="project-category">UX Research</p> -->
-              <!-- </a> -->
-            <!-- </li> -->
-            <!-- Other Project Items -->
-          <!-- </ul> -->
-          <!-- <button class="form-btn" onclick="hideProjectDetails()"> -->
-            <!-- <span>Back to Portfolio</span> -->
-          <!-- </button> -->
-        <!-- </section> -->
-      
-        <!-- Project Details Section
-        <section class="project-details" id="textured-insoles1-details" style="display: none;">
-          <h2 class="h2 article-title">Textured Insoles Impact on Performance</h2>
-          
-          <h2>Project Overview</h2>
-          <p>This groundbreaking research project investigated the effects of textured insoles on postural control, locomotor adaptation, and cognitive performance during dynamic activities. As the lead researcher at the adidas-Arizona State University Center for Engagement Science, I spearheaded a multidisciplinary team to explore the potential benefits of innovative insole designs for diverse populations.</p>
-          
-          <h2>Addressing the Problem</h2>
-          <p>Recognizing the limitations of traditional cognitive tests during dynamic activities, I identified a critical gap in our understanding of how sensory feedback from the feet impacts overall performance. This led to the central question: Can strategically textured insoles enhance balance, proprioception, and cognitive function during movement?</p>
-          
-          <h2>Innovative Ideas and Methodologies</h2>
-          <p>To tackle this complex issue, I developed a suite of novel testing protocols:</p>
-          <ol>
-              <li>Visual Analog Scale Test (VAST): Quantified subjective perceptions of insole texture</li>
-              <li>Balance and Stability Test (BAST): Measured mediolateral sway during static balance tasks</li>
-              <li>Dynamic Adjusted Lane Test (DALT): Assessed gait adaptability in confined spaces</li>
-              <li>Dynamic Auditory Stroop Test (DAST): Evaluated cognitive performance during movement</li>
-          </ol>
-          <p>These custom-designed tests allowed us to gather comprehensive data on the interplay between foot sensory input and various performance metrics.</p>
-          
-          <h2>Procedure and User Interaction</h2>
-          <ol>
-              <li>Participant Recruitment: Carefully screened and selected 15 male participants (age 23.3 ± 2.67) using the Physical Activity Readiness Questionnaire (PARQ).</li>
-              <li>Informed Consent: Developed a clear, thorough consent process to ensure participants fully understood the study's scope and potential risks.</li>
-              <li>Testing Sessions: Conducted rigorous 75-minute sessions, guiding participants through each protocol with precision and care.</li>
-              <li>Insole Treatments: Tested four insole conditions - three prototypes (P1, P2, P3) and a control (smooth sole).</li>
-              <li>Data Collection: Utilized cutting-edge sensors and recording devices to capture high-quality data across all test modalities.</li>
-              <li>Feedback Loop: Regularly solicited participant feedback to refine our protocols and ensure comfort throughout the testing process.</li>
-          </ol>
-          
-          <h2>Key Achievements and Findings</h2>
-          <ol>
-              <li>Data Analysis: Employed advanced statistical techniques to uncover significant trends:
-                  <ul>
-                      <li>Up to 34% reduction in mediolateral sway with textured insoles</li>
-                      <li>6% improvement in gait adaptability</li>
-                      <li>Insoles I2 and I3 demonstrated the lowest average response times in cognitive tasks</li>
-                  </ul>
-              </li>
-              <li>Visualization: Created compelling data visualizations to effectively communicate our findings to both scientific and general audiences.</li>
-              <li>Threshold Effect Discovery: Identified a critical "sweet spot" in insole texture that maximizes performance benefits.</li>
-              <li>Response Accuracy: Achieved close to 95% accuracy across all insole conditions in cognitive tasks.</li>
-          </ol>
-          
-          <h2>Impact and Future Directions</h2>
-          <p>This research has significant implications for multiple populations:</p>
-          <ul>
-              <li>Athletes: Potential for enhanced proprioception and reduced injury risk</li>
-              <li>Aging Individuals: Improved balance and stability for fall prevention</li>
-              <li>Neuromotor Deficiencies: Possible therapeutic applications to improve gait and cognitive function</li>
-          </ul>
-          <p>Our findings lay the groundwork for revolutionizing insole design, opening new avenues for personalized footwear that can dramatically improve performance and quality of life.</p>
-          
-          <h2>Collaboration and Leadership</h2>
-          <p>Throughout this project, I:</p>
-          <ul>
-              <li>Led a diverse team of researchers, fostering a collaborative and innovative environment</li>
-              <li>Collaborated closely with Dr. Aurel Coza, Director of the adidas-Arizona State University Center for Engagement Science</li>
-              <li>Presented findings at departmental seminars, receiving valuable feedback to further refine our methodologies</li>
-          </ul>
-          
-          <h2>Next Steps</h2>
-          <p>Building on the success of this initial study, I am now:</p>
-          <ol>
-              <li>Designing a larger-scale trial to validate our findings across a broader demographic</li>
-              <li>Exploring partnerships with footwear manufacturers to translate our research into commercial products</li>
-              <li>Investigating potential applications in rehabilitation settings for individuals with balance disorders</li>
-              <li>Refining our testing protocols, particularly the DAST, to better assess cognitive function during dynamic activities</li>
-          </ol>
-          
-          <p>This project exemplifies my passion for innovative research that bridges the gap between theoretical biomechanics and practical, real-world applications. It demonstrates my ability to conceptualize, design, and execute complex studies that have the potential to significantly impact both athletic performance and quality of life for diverse populations.</p>
-          </section> -->
+          <button class="form-btn" onclick="reloadAndNavigate()">If this content is not loaded, Click to Refresh and comeback</button>
+          <script>
+            function reloadAndNavigate() {
+              window.location.hash = '#user-research';
+              location.reload();
+            }
+            </script>
         
-          <!-- User Research Section -->
-          <ul class="project-list">
-            <!-- User Research Project Item 1 -->
-            <li class="project-item active" >
-              <a href="#" data-modal="modal-textured-insoles">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/Picture2.png" alt="Textured Insoles Research" loading="lazy">
-                </figure>
-                <h3 class="project-title">Assessing Cognitive Performance During Dynamic Activities with Varying Insole Textures</h3>
-                <p class="project-category">User Research</p>
-              </a>
-            </li>
-          
-            <!-- Modal for Textured Insoles -->
-            <div id="modal-textured-insoles" class="modal">
-              <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Assessing Cognitive Performance During Dynamic Activities with Varying Insole Textures</h2>
-                <div class="project-details">
 
+            <!-- User Research Section -->
+            <ul class="project-list">
+              <!-- User Research Project Item 1 -->
+              <li class="project-item active" >
+                <a href="#" data-modal="modal-textured-insoles">
+                  <figure class="project-img">
+                    <div class="project-item-icon-box">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                    <img src="./assets/images/Picture2.png" alt="Textured Insoles Research" loading="lazy">
+                  </figure>
+                  <h3 class="project-title">Assessing Cognitive Performance </br> During Dynamic Activities </br> with Varying Insole Textures</h3>
+                </a>
+              </li>
+
+              <!-- Modal for Textured Insoles -->
+              <div id="modal-textured-insoles" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2>Assessing Cognitive Performance During Dynamic Activities with Varying Insole Textures</h2>
+                  <div class="project-details">
                   <ul>
                     <p> •  Investigated the effects of textured insoles on cognitive performance during dynamic activities, specifically focusing on divided attention scenarios.</p>
                     <p> •  Hypothesized that enhanced somatosensory feedback from textured insoles would improve cognitive resource allocation, particularly in situations requiring divided attention.</p>
