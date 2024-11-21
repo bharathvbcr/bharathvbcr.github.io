@@ -277,6 +277,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Remove existing event listeners from close buttons
+const oldCloseButtons = document.querySelectorAll('.close-modal');
+oldCloseButtons.forEach(button => {
+  const newButton = button.cloneNode(true);
+  button.parentNode.replaceChild(newButton, button);
+});
+
 function hideProjectDetails() {
   document.querySelectorAll('.modal').forEach(modal => {
     modal.style.display = 'none';
@@ -364,15 +371,13 @@ function initializeCertificateModals() {
   // Function to open modal
   function openModal(modal) {
     if (modal == null) return;
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Disable background scrolling
+    modal.style.display = 'block';
   }
 
   // Function to close modal
   function closeModal(modal) {
     if (modal == null) return;
-    modal.classList.remove('active');
-    document.body.style.overflow = ''; // Enable background scrolling
+    modal.style.display = 'none';
   }
 
   // Add event listeners to certificate links
@@ -411,12 +416,16 @@ function initializeCertificateModals() {
 
 // Function to handle navigation and reinitialize modals
 function handleNavigation() {
-  const navigationLinks = document.querySelectorAll("[data-nav-link]");
+  const navigationLinks = document.querySelectorAll('[data-nav-link]');
   navigationLinks.forEach(link => {
     link.addEventListener('click', () => {
       const targetPage = link.getAttribute('data-page');
+
+      // Logic to display the target page...
+
+      // Initialize modals if navigating to the certificates page
       if (targetPage === 'certificates') {
-        // Small delay to ensure DOM is updated
+        // Use a small delay to ensure the content is loaded
         setTimeout(initializeCertificateModals, 100);
       }
     });
@@ -453,6 +462,30 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+function initializeCertificateModals() {
+  // Add event listeners to open buttons
+  const openModalButtons = document.querySelectorAll('[data-certificate-modal]');
+  openModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modalId = button.getAttribute('data-certificate-modal');
+      const modal = document.getElementById(modalId);
+      openModal(modal);
+    });
+  });
 
+  // Add event listeners to close buttons within the modals
+  const closeModalButtons = document.querySelectorAll('.close-modal');
+  closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.modal');
+      closeModal(modal);
+    });
+  });
 
-
+  // Close modal when clicking outside the modal content
+  window.addEventListener('click', event => {
+    if (event.target.classList.contains('modal')) {
+      closeModal(event.target);
+    }
+  });
+}
