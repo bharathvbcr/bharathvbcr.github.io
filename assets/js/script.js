@@ -333,13 +333,13 @@ style.textContent = `
     max-height: 85vh;
     overflow-y: auto;
     scroll-behavior: smooth;
-    padding-right: 10px;
+    padding-right: 15px;
   }
 
-  /* Modern Scrollbar Styles */
+  /* WebKit browsers (Chrome, Safari) */
   .modal-content::-webkit-scrollbar {
-    width: 6px;
-    background: transparent;
+    width: 8px;
+    background-color: transparent;
   }
 
   .modal-content::-webkit-scrollbar-track {
@@ -357,15 +357,15 @@ style.textContent = `
     background: rgba(136, 136, 136, 0.8);
   }
 
-  /* Firefox Scrollbar */
+  /* Firefox */
   .modal-content {
     scrollbar-width: thin;
     scrollbar-color: rgba(136, 136, 136, 0.5) rgba(255, 255, 255, 0.1);
   }
 
-  /* Edge/IE Support */
+  /* Edge */
   .modal-content {
-    -ms-overflow-style: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
   }
 `;
 document.head.appendChild(style);

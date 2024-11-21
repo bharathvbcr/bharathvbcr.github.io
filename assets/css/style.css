@@ -1025,15 +1025,14 @@ article.active {
 }
 
 /* Close Button */
-/* Close Button */
 .close {
   position: absolute;
   top: 15px;
   right: 15px;
   background: var(--border-gradient-onyx);
   color: var(--orange-yellow-crayola);
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1066,8 +1065,10 @@ article.active {
 } */
 
 .close ion-icon {
-  --ionicon-stroke-width: 50px;
-  font-size: 1.5em;
+  --ionicon-stroke-width: 100px; /* Reduced from 100px to make it more balanced */
+  font-size: 44px; /* Adjusted size for better proportion */
+  font-weight: bold; /* Added font weight */
+  padding: 5px; /* Added padding to increase clickable area */
 }
 
 .close::before {
@@ -1079,8 +1080,6 @@ article.active {
   z-index: -1;
   transition: var(--transition-1);
 }
-
-.close ion-icon { font-size: 16px; }
 
 .close:hover { background: var(--bg-gradient-yellow-1); }
 
