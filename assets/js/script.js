@@ -43,6 +43,8 @@ for (let i = 0; i < CurrentItem.length; i++) {
 
 }
 
+
+
 // add click event to modal close button
 modalCloseBtn.addEventListener("click", CurrentModalFunc);
 overlay.addEventListener("click", CurrentModalFunc);
@@ -50,7 +52,7 @@ overlay.addEventListener("click", CurrentModalFunc);
 // custom select variables
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
+const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
 select.addEventListener("click", function () { elementToggleFunc(this); });
@@ -142,6 +144,7 @@ for (let i = 0; i < navigationLinks.length; i++) {
         navigationLinks[i].classList.remove("active");
       }
     }
+    // Reload the page if 'user research' is selected
 
   });
 }
@@ -389,4 +392,45 @@ function handleNavigation() {
 document.addEventListener('DOMContentLoaded', () => {
   initializeCertificateModals();
   handleNavigation();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectItems = document.querySelectorAll('[data-filter-item]');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Update active class on buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const filterValue = button.getAttribute('data-filter');
+
+      projectItems.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        if (filterValue === 'all' || itemCategory === filterValue) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    const targetPage = link.getAttribute('data-nav-link');
+
+    // Reload the page if 'user research' is selected
+    if (targetPage === 'user research') {
+      window.location.hash = '#user-research';
+      location.reload();
+      return; // Exit the function to prevent further execution
+    }
+
+    pages.forEach(page => {
+      page.classList.toggle('active', page.getAttribute('data-page') === targetPage);
+    });
+  });
 });
