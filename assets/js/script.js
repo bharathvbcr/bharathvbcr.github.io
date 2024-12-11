@@ -294,37 +294,34 @@ const aiForm = document.getElementById('ai-form');
 const userQuestion = document.getElementById('user-question');
 const aiAnswer = document.getElementById('ai-answer');
 
-
-const serverEndpoint = '/your-api-endpoint'; // Your server-side endpoint
+const serverEndpoint = 'http://127.0.0.1:5000/your-api-endpoint'; // Correct endpoint
 
 aiForm.addEventListener('submit', async function(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const question = userQuestion.value;
-    aiAnswer.textContent = "Thinking...";
+  const question = userQuestion.value;
+  aiAnswer.textContent = "Thinking...";
 
-    try {
-        const response = await fetch(serverEndpoint, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ question: question }) // Send the question to your server
-        });
+  try {
+      const response = await fetch(serverEndpoint, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ question: question })
+      });
 
-        if (!response.ok) {
-          // Handle server errors, provide helpful message to user.
-          // Consider retry mechanisms, etc.
-            throw new Error(`Server request failed ${response.status}`);
-        }
+      if (!response.ok) {
+          throw new Error(`Server request failed ${response.status}`);
+      }
 
-        const data = await response.json();
-        aiAnswer.textContent = data.answer;  // Get the answer from your server's response
+      const data = await response.json();
+      aiAnswer.textContent = data.answer;
 
-    } catch (error) {
-        console.error('Error:', error);
-        aiAnswer.textContent = `An error occurred. Please try again or contact me directly using the information on my portfolio. Working fast to fix it!`; // User-friendly message
-    }
+  } catch (error) {
+      console.error('Error:', error);
+      aiAnswer.textContent = `An error occurred. Please try again or contact me directly using the information on my portfolio. Working fast to fix it!`;
+  }
 });
 
 const style = document.createElement('style');
