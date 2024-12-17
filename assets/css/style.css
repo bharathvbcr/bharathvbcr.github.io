@@ -2687,12 +2687,25 @@ textarea.form-input::-webkit-resizer { display: none; }
   transform: scale(1.1);
 }
 
-.project-title,
+.project-title, 
+.project-date,
 .project-category {
   padding: 15px;
 }
 
 .project-title {
+  font-size: 1.1rem;
+  color: var(--orange-yellow-crayola);
+}
+
+.project-date {
+  font-size: 0.9rem;
+  color: var(--orange-yellow-crayola);
+  text-align: right;
+  padding-right: 15px;
+}
+
+.project- {
   font-size: 1.1rem;
   color: var(--orange-yellow-crayola);
 }
