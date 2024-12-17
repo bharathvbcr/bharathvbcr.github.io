@@ -538,55 +538,44 @@
 
               <section class="projects">
       
-                <ul class="filter-list">
-            
+                <ul class="filter-list" role="tablist">
                   <li class="filter-item">
-                    <button class="active" data-filter-btn>All</button>
+                    <button class="active" data-filter-btn data-filter="all" role="tab" aria-selected="true">All</button>
                   </li>
           
-            
                   <li class="filter-item">
-                    <button data-filter-btn>Projects</button>
+                    <button data-filter-btn data-filter="projects" role="tab" aria-selected="false">Projects</button>
                   </li>
       
                   <li class="filter-item">
-                    <button data-filter-btn>Research Proposals</button>
+                    <button data-filter-btn data-filter="research-proposals" role="tab" aria-selected="false">Research Proposals</button>
                   </li>
-            
                 </ul>
             
                 <div class="filter-select-box">
-            
-                  <button class="filter-select" data-select>
-            
+                  <button class="filter-select" data-select aria-label="Select category" aria-haspopup="listbox">
                     <div class="select-value" data-select-value>Select category</div>
-            
                     <div class="select-icon">
-                      <ion-icon name="chevron-down"></ion-icon>
+                      <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
                     </div>
-            
                   </button>
             
-                  <ul class="select-list">
-            
+                  <ul class="select-list" role="listbox" aria-label="Categories">
                     <li class="select-item">
-                      <button data-select-item>All</button>
+                      <button data-select-item data-filter="all" role="option">All</button>
                     </li>
         
-            
                     <li class="select-item">
-                      <button data-select-item>Projects</button> 
+                      <button data-select-item data-filter="projects" role="option">Projects</button> 
                     </li>
       
                     <li class="select-item">
-                      <button data-select-item>Research Proposals</button>
+                      <button data-select-item data-filter="research-proposals" role="option">Research Proposals</button>
                     </li>
-            
                   </ul>
-            
                 </div>
             
-                <ul class="project-list">
+                <ul class="project-list" role="tabpanel">
 
 
   <!-- First Project Item -->
@@ -1110,9 +1099,27 @@
 
 <section class="certificates">
   <ul class="certificate-list">
-    <!-- Certificate Item 1 -->
+
+
+
+
+        <!--Certificate Item 4-->
+        <li class="certificate-item">
+          <a href="#" data-project-link="certificate4" data-modal="modal-certificate4"> 
+            <figure class="certificate-img">
+              <div class="certificate-item-icon-box">
+                <ion-icon name="eye-outline"></ion-icon>
+              </div>
+              <img src="./assets/images/Clinical Trials Operations.png" alt="Clinical Trials Operations" loading="lazy">
+            </figure>
+            <h3 class="certificate-title">Clinical Trials Operations</h3>
+          </a>
+        </li>
+
+
+    <!-- Certificate Item 3 -->
     <li class="certificate-item">
-      <a href="#" data-project-link="certificate1" data-modal="modal-certificate1"> 
+      <a href="#" data-project-link="certificate3" data-modal="modal-certificate3"> 
         <figure class="certificate-img">
           <div class="certificate-item-icon-box">
             <ion-icon name="eye-outline"></ion-icon>
@@ -1136,14 +1143,46 @@
       </a>
     </li>
 
+        <!-- Certificate Item 1 -->
+        <li class="certificate-item">
+          <a href="#" data-project-link="certificate1" data-modal="modal-certificate1"> 
+            <figure class="certificate-img">
+              <div class="certificate-item-icon-box">
+                <ion-icon name="eye-outline"></ion-icon>
+              </div>
+              <img src="./assets/images/Python.png" alt="Python" loading="lazy">
+            </figure>
+            <h3 class="certificate-title">Python</h3>
+          </a>
+        </li>
+
+
+
     <!-- Add more certificate items here -->
   </ul>
 
 
 <!-- Modals remain unchanged BUT with consistent close button class -->
 
+            <!-- Modal -->
+            <div id="modal-certificate4" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Clinical Trials Operations</h2>
+                <div class="certification-details">
+                  <img src="./assets/images/Clinical Trials Operations.png" alt="Clinical Trials Operations" style="max-width: 100%; margin-bottom: 20px;">
+                  <p><strong style="color: red;">Issuing Organization:</strong> Johns Hopkins University</p>
+                  <p><strong style="color: red;">Date Issued:</strong> December 2024</p>
+                  <p><strong style="color: red;">Skills:</strong> Data Collection, Trial Design, Data Management, Clinical Data Management, Ethics</p>
+                  <p><strong style="color: red;">Concepts:</strong> Design and implement clinical trials,  Collect, manage, and analyze data, Conduct trial monitoring and quality assurance, Recruit and retain clinical trial particpants</p>
+                  <button class="form-btn" onclick="window.open('https://coursera.org/verify/specialization/Z80Q89ZJ3CDT', '_blank')">Verify Certificate</button>
+                </div>
+              </div>
+            </div>
+
+
       <!-- Modal -->
-      <div id="modal-certificate1" class="modal">
+      <div id="modal-certificate3" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
           <h2>Human Factors & Usability Engineering: Designing for Humans</h2>
@@ -1152,10 +1191,14 @@
             <p><strong style="color: red;">Issuing Organization:</strong> Arizona State University</p>
             <p><strong style="color: red;">Date Issued:</strong> July 2024</p>
             <p><strong style="color: red;">Skills:</strong> Usability, Human Performance, Human-Centered Design, Visual interface and design, Field of human factors </p>
+            <p><strong style="color: red;">Concepts:</strong> Human factors relevance & key applications; methods for studying & reducing human error; human-centered design for improved usability, Consider products, technologies & systems. Compare/contrast perceptual displays & understand trade-offs in designing effective interfaces, Consider human limitations. Distinguish among types of attention & memory; identify strategies & heuristics used for decision making, Consider human performance and types of controls.  Understand & identify key factors that influence how humans produce & sense motion. </p>
             <button class="form-btn" onclick="window.open('https://coursera.org/verify/specialization/6YP3E4ZVPTGF', '_blank')">Verify Certificate</button> 
           </div>
         </div>
       </div>
+
+
+
 
       <!-- Modal -->
       <div id="modal-certificate2" class="modal">
@@ -1164,12 +1207,28 @@
           <h2>Introductory Human Physiology</h2>
           <div class="certification-details">
             <img src="./assets/images/Introductory_Human_Physiology.png" alt="Introductory Human Physiology" style="max-width: 100%; margin-bottom: 20px;">
-            <p><strong style="color: red;">Issuing Organization:</strong> Duke UNIVERSITY</p>
+            <p><strong style="color: red;">Issuing Organization:</strong> Duke University</p>
             <p><strong style="color: red;">Date Issued:</strong> April 2021</p>
             <p><strong style="color: red;">Skills:</strong> Metabolic Pathways, Biology, Organ Systems, Medicine, Cardiovascular understanding</p>
+          <button class="form-btn" onclick="window.open('https://coursera.org/verify/UF7L3MN4HQZL', '_blank')">Verify Certificate</button>
           </div>
         </div>
       </div>
+
+            <!-- Modal -->
+            <div id="modal-certificate1" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Python</h2>
+                <div class="certification-details">
+                  <img src="./assets/images/Python.png" alt="Python" style="max-width: 100%; margin-bottom: 20px;">
+                  <p><strong style="color: red;">Issuing Organization:</strong>University of Dubai</p>
+                  <p><strong style="color: red;">Date Issued:</strong> July 2020</p>
+                </div>
+              </div>
+            </div>
+
+
 
 
 
