@@ -243,7 +243,7 @@ window.addEventListener('click', event => {
 document.addEventListener('DOMContentLoaded', () => {
   // Get all certification links
   const certLinks = document.querySelectorAll('.certification-link');
-  
+
   // Add click handlers to all links
   certLinks.forEach(link => {
     link.addEventListener('click', (e) => {
@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Get all close buttons
   const closeButtons = document.querySelectorAll('.close-modal');
-  
+
   // Add click handlers to all close buttons
   closeButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -296,31 +296,31 @@ const aiAnswer = document.getElementById('ai-answer');
 
 const serverEndpoint = 'http://127.0.0.1:5000/your-api-endpoint'; // Correct endpoint
 
-aiForm.addEventListener('submit', async function(event) {
+aiForm.addEventListener('submit', async function (event) {
   event.preventDefault();
 
   const question = userQuestion.value;
   aiAnswer.textContent = "Thinking...";
 
   try {
-      const response = await fetch(serverEndpoint, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ question: question })
-      });
+    const response = await fetch(serverEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ question: question })
+    });
 
-      if (!response.ok) {
-          throw new Error(`Server request failed ${response.status}`);
-      }
+    if (!response.ok) {
+      throw new Error(`Server request failed ${response.status}`);
+    }
 
-      const data = await response.json();
-      aiAnswer.textContent = data.answer;
+    const data = await response.json();
+    aiAnswer.textContent = data.answer;
 
   } catch (error) {
-      console.error('Error:', error);
-      aiAnswer.textContent = `An error occurred. Please try again or contact me directly using the information on my portfolio. Working fast to fix it!`;
+    console.error('Error:', error);
+    aiAnswer.textContent = `An error occurred. Please try again or contact me directly using the information on my portfolio. Working fast to fix it!`;
   }
 });
 
