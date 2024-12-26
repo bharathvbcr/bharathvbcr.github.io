@@ -581,7 +581,7 @@ social-item .social-link:hover {
 }
 
 .about .about-text {
-  background-image: url("../images/Nature.jpg");
+  background-image: url("../images/Red_Circuit.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -599,7 +599,7 @@ social-item .social-link:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 1;
 }
 
