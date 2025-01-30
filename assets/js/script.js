@@ -403,6 +403,16 @@ function initializeCertificateModals() {
     });
   });
 
+  function initializePublicationModals() {
+    // Open Modal
+    document.querySelectorAll('[data-modal-target]').forEach(item => {
+      item.addEventListener('click', event => {
+        event.preventDefault(); // Prevent default link behavior
+        const modalId = item.getAttribute('data-modal-target');
+        document.getElementById(modalId).style.display = 'block';
+      });
+    });
+
   // Remove existing event listeners from close buttons
   const oldCloseButtons = document.querySelectorAll('.close-modal');
   oldCloseButtons.forEach(button => {
@@ -501,4 +511,5 @@ function initializeCertificateModals() {
       closeModal(event.target);
     }
   });
+}
 }

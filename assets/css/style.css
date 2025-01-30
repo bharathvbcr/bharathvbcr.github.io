@@ -1219,6 +1219,7 @@ article.active {
   transform: rotate(0.5turn);
 }
 
+
 .select-list {
   background: var(--eerie-black-2);
   position: absolute;
@@ -1227,11 +1228,18 @@ article.active {
   padding: 6px;
   border: 1px solid var(--jet);
   border-radius: 14px;
-  z-index: 2;
+  z-index: 10;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  overflow: hidden; /* Hide content when collapsed */
   transition: 0.15s ease-in-out;
+}
+
+.filter-select-wrapper {
+  /* ... other styles ... */
+  position: relative; /* This, along with z-index, creates a new stacking context */
+  z-index: 5; /* You can use a lower z-index here than the dropdown's z-index */
 }
 
 .filter-select.active + .select-list {
@@ -1466,6 +1474,228 @@ article.active {
 
 .certification-details {
   margin-top: 20px;
+}
+
+.publications {
+  padding: 50px 0; /* Adjust padding as needed */
+}
+
+.container {
+  max-width: 960px; /* Adjust container width as needed */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* General Styles for Dark Theme */
+.dark-theme {
+  background-color: #181818; /* Dark background */
+  color: #eee; /* Light text */
+}
+
+/* Publication List Styles */
+.publication-list {
+  display: list;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.publication-item {
+  display: flex;
+  flex-direction: column;
+  background: var(--eerie-black-2);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.publication-item:hover {
+  transform: translateY(-5px);
+}
+
+.publication-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+}
+
+.publication-content {
+  padding: 15px;
+}
+
+.publication-title {
+  font-size: 1.1rem;
+  color: var(--orange-yellow-crayola);
+  margin-bottom: 5px;
+}
+
+.publication-authors{
+  font-size: 0.8rem;
+  color: var(--light-gray);
+  margin-bottom: 5px;
+}
+
+.publication-journal {
+  font-size: 0.8rem;
+  color: var(--orange-yellow-crayola);
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+.publication-description {
+  font-size: 0.8rem;
+  color: var(--light-gray);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.publication-button {
+  padding: 10px 20px;
+  background: var(--orange-yellow-crayola);
+  color: var(--smoky-black);
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  font-weight: var(--fw-500);
+  cursor: pointer;
+  transition: var(--transition-1);
+  margin-top: auto; /* Push the button to the bottom */
+  align-self: flex-start; /* Align the button to the start */
+}
+
+.publication-button:hover {
+  background: var(--vegas-red);
+  color: var(--white-1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .publication-list {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .publication-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100; /* Ensure it's on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  position: relative;
+  background-color: #181818; /* Dark background for modal */
+  color: #eee;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #555;
+  width: 80%;
+  max-width: 700px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Modal Animation */
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.close-modal {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #ccc;
+  text-decoration: none;
+}
+
+/* Modal Styles (Adapt as needed) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000; /* Ensure it's on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #181818;
+  color: #eee;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #555;
+  width: 80%;
+  max-width: 800px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-content .form-btn {
+  background-color: #701518; /* Example button color - adjust as needed */
+  color: #fff;
+  border: none;
+  margin-top: 20px;
+  
+}
+.modal-content .form-btn:hover{
+    background-color: #701518;
 }
 
 /*-----------------------------------*\
