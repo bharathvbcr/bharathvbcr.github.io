@@ -48,7 +48,7 @@
 
   /* solid */
 
-  --jet: hsl(0, 0%, 22%);
+  --jet: hsla(0, 42%, 8%, 1.00);
   --onyx: hsl(240, 1%, 17%);
   --eerie-black-1: hsl(240, 2%, 13%);
   --eerie-black-2: hsl(240, 2%, 12%);
@@ -950,8 +950,24 @@ social-item .social-link:hover {
   margin-bottom: 7px;
 }
 
+h4.timeline-item-title.timeline-item-header {
+  color: red;
+}
+
+.timeline-item-subtitle {
+  color: red !important;
+}
+
+.timeline-item-date {
+  color: red;
+}
+
+.timeline-item-header .timeline-item-date {
+  color: white;
+}
+
 .timeline-list span {
-  color: var(--vegas-gold);
+  color: inherit;
   font-weight: var(--fw-400);
   line-height: 1.6;
 }
@@ -961,7 +977,7 @@ social-item .social-link:hover {
   position: absolute;
   top: -25px;
   left: -30px;
-  width: 1px;
+  width: 5px;
   height: calc(100% + 50px);
   background: var(--jet);
 }
@@ -982,6 +998,10 @@ social-item .social-link:hover {
   color: var(--light-gray);
   font-weight: var(--fw-300);
   line-height: 1.6;
+}
+
+.timeline-text p strong {
+  color: red;
 }
 
 /**
