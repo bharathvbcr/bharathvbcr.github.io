@@ -540,3 +540,4 @@ function produceRandomSmoke() {
 }
 
 setInterval(produceRandomSmoke, 1000);
+}
