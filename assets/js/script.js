@@ -512,4 +512,31 @@ function initializeCertificateModals() {
     }
   });
 }
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
 }
+
+var canvas = document.getElementById('smoke-canvas');
+var smoke = smokemachine(canvas, [20, 20, 20]);
+
+function addSmoke(e) {
+    smoke.addsmoke(e.clientX, e.clientY, 100, 2, 2000);
+}
+
+window.addEventListener('mousemove', throttle(addSmoke, 100));
+
+function produceRandomSmoke() {
+    smoke.addsmoke(Math.random() * window.innerWidth, Math.random() * window.innerHeight, 30, 5000);
+}
+
+setInterval(produceRandomSmoke, 1000);
